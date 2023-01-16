@@ -83,7 +83,7 @@ Let's take a look at pumpkins sales throughout the year.
 
 *Question 1:* Create a scatter plot using price on the y-axis and day on the x-axis.
 
-```{r}
+```{r, echo=TRUE}
 ggplot(data = pumpkins, aes(x = day, y = price)) + geom_point(color = "blue", 
              alpha = .2, 
              size = 3) +
@@ -153,7 +153,7 @@ new_pumpkins %>%
 
 *Question 3:* Is this a useful plot 🤷? Does anything about it surprise you?
 
-**The plot does provide information about pumpkin prices, however, this plot is not very useful as it is difficult to interpret and there is no decernible pattern. Also, there are too many points on the graph that make it look clunky. It surprising how the prices increase drastically between days 275 to 315.**
+**The plot does provide information about pumpkin prices, however, this plot is not very useful as it is difficult to interpret and there is no discernible pattern. Also, there are too many points on the graph that make it look clunky. It surprising how the prices fluctuate drastically between days 275 to 315.**
 
 How do we make it useful? To get charts to display useful data, you usually need to group the data somehow.
 
@@ -255,7 +255,7 @@ cor(baked_pumpkins$day, baked_pumpkins$price)
 
 *Question 8:* Which of these three variables is most highly correlated with price? Why might this be?
 
-**The package is most highly correlated with price, because it has a correlation of .6 which is closer to 1 rather compared to the other variables which has a correlation closer to 0.**
+**The "variety" variable is most highly correlated with price, because it has a correlation of -.86 which is closer to -1 indicating a strong negative correlation compared the variable "day" which has a correlation closer to 0. The different varieties impact the price of the pumpkins.**
 
 Now let's visualize a correlation matrix of all the columns using the corrplot package.
 
@@ -407,6 +407,6 @@ Hmm. The model does not do good job of generalizing the relationship between a p
 
 *Question 9* What issues do you see with fitting a linear regression to this data?
 
-**The data is clustered vertically for the different packages and the linear regression line does not make sense as it doesn't represent the spread of the data.**
+**The data is clustered vertically for the different packages and the linear regression line does not make sense for this data as it doesn't represent the spread of the data.**
 
 Congratulations, you just created a model that can help predict the price of a few varieties of pumpkins. But you can probably create a better model!

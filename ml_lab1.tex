@@ -34,6 +34,46 @@
 \makeatother
 \usepackage{xcolor}
 \usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
 \usepackage{graphicx}
 \makeatletter
 \def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
@@ -65,7 +105,7 @@
 
 \title{Lab1}
 \author{Amritpal Sandhu}
-\date{2023-01-14}
+\date{2023-01-16}
 
 \begin{document}
 \maketitle
@@ -199,6 +239,15 @@ Let's take a look at pumpkins sales throughout the year.
 \emph{Question 1:} Create a scatter plot using price on the y-axis and
 day on the x-axis.
 
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ pumpkins, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ day, }\AttributeTok{y =}\NormalTok{ price)) }\SpecialCharTok{+} \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{color =} \StringTok{"blue"}\NormalTok{, }
+             \AttributeTok{alpha =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }
+             \AttributeTok{size =} \DecValTok{3}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{x =} \StringTok{"Day"}\NormalTok{, }\AttributeTok{y =} \StringTok{"Price"}\NormalTok{, }\AttributeTok{title =} \StringTok{"Pumpkin Sales Throughout the Year"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
 \includegraphics{ml_lab1_files/figure-latex/unnamed-chunk-5-1.pdf}
 
 Now, before we go any further, let's take another look at the data.
@@ -302,8 +351,8 @@ surprise you?
 
 \textbf{The plot does provide information about pumpkin prices, however,
 this plot is not very useful as it is difficult to interpret and there
-is no decernible pattern. Also, there are too many points on the graph
-that make it look clunky. It surprising how the prices increase
+is no discernible pattern. Also, there are too many points on the graph
+that make it look clunky. It surprising how the prices fluctuate
 drastically between days 275 to 315.}
 
 How do we make it useful? To get charts to display useful data, you
@@ -458,9 +507,11 @@ two other variables in the data set
 \emph{Question 8:} Which of these three variables is most highly
 correlated with price? Why might this be?
 
-\textbf{The package is most highly correlated with price, because it has
-a correlation of .6 which is closer to 1 rather compared to the other
-variables which has a correlation closer to 0.}
+\textbf{The ``variety'' variable is most highly correlated with price,
+because it has a correlation of -.86 which is closer to -1 indicating a
+strong negative correlation compared the variable ``day'' which has a
+correlation closer to 0. The different varieties impact the price of the
+pumpkins.}
 
 Now let's visualize a correlation matrix of all the columns using the
 corrplot package.
@@ -620,8 +671,8 @@ between a package and its corresponding price.
 regression to this data?
 
 \textbf{The data is clustered vertically for the different packages and
-the linear regression line does not make sense as it doesn't represent
-the spread of the data.}
+the linear regression line does not make sense for this data as it
+doesn't represent the spread of the data.}
 
 Congratulations, you just created a model that can help predict the
 price of a few varieties of pumpkins. But you can probably create a
